@@ -54,6 +54,9 @@ def submit_form():
     email = request.form['email']
     address = request.form['address']
     date = request.form['date']
+    format_file = "\n--------------------------\n" + f"Nome: {name}\n" + f"E-mail: {email}\n" + f"Indirizzo: {address}\n" + f"Data: {date}\n" + "--------------------------"
+    with open("dati.txt", "a") as f:
+        f.write(format_file)
 
     # È possibile salvare i dati o inviarli via e-mail
     return render_template('form_result.html', 
